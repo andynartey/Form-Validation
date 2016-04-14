@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Form validation <small>with Angular JS</small></h1>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="callout" >
+          <form name="signupForm" ng-app="app">
+            <label>First Name:</label>
+            <input type="text" name="userFirstName" ng-model="firstName" required />
+            <div ng-messages="signupForm.userFirstName.$error"
+                 ng-if="signupForm.userFirstName.$dirty">
+              <div ng-message="required">This field is required</div>
+            </div>
+    
+            <label>Last Name:</label>
+            <input type="text" name="userLastName" ng-model="lastName" required />
+            <div ng-messages="signupForm.userLastName.$error"
+                 ng-if="signupForm.userLastName.$dirty">
+              <div ng-message="required">This field is required</div>
+            </div>
+    
+            <label>Email Address:</label>
+            <input type="email" name="userEmail" ng-model="email" required />
+            <div ng-messages="signupForm.userEmail.$error"
+                 ng-if="signupForm.userEmail.$dirty">
+              <div ng-message="required">This field is required</div>
+              <div ng-message="email">Your email address is invalid</div>
+            </div>
+    
+            <label>Phone Number:</label>
+            <input type="email" name="userPhoneNumber" ng-model="phoneNumber" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" required/>
+            <div ng-messages="signupForm.userPhoneNumber.$error"
+                 ng-if="signupForm.userPhoneNumber.$dirty">
+              <div ng-message="required">This field is required</div>
+              <div ng-message="pattern">Must be a valid 10 digit phone number</div>
+            </div>
+            <br>
+            <button type="submit" class="button">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-messages.min.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
